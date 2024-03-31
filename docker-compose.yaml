@@ -1,0 +1,32 @@
+version: '3'
+services:
+  frontend:
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    develop:
+      watch:
+        - action: sync
+          path: ./frontend
+          target: /frontend
+    networks:
+      - bridge
+  backend:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    develop:
+      watch:
+        - action: sync
+          path: ./backend
+          target: /backend
+    networks:
+      - bridge
+  
+networks:
+  bridge:
+    driver: bridge

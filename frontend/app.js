@@ -2,18 +2,20 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const axios = require("axios");
+const http = require("http");
 
 app.use(cors());
 
 app.get("/", async(req, res) => {
 
     try {
-        let result = await axios.get("http://127.0.0.1:5000/")
+        let result = await axios.get("http://localhost:5000/")
         console.log(result.data)
-        res.send("hey");
-
+        res.send("hey ho!")
+        
+        
     }catch(err) {
-        console.error({"message": err.message});
+        console.log(err);
     }
 });
 app.listen(3000, () => {
