@@ -9,8 +9,8 @@ app.use(cors());
 app.get("/", async(req, res) => {
 
     try {
-        let result = await axios.get("http://localhost:5000/")
-        console.log(result.data)
+        //let result = await axios.get("http://localhost:5000/")
+        //console.log(result.data)
         res.send("hey ho!")
         
         
